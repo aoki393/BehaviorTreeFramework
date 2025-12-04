@@ -118,7 +118,7 @@ public class GhostController : MonoBehaviour
         currentVelocity = 0f;
         isBouncing = false;
         bounceTimer = 0f;
-        rb.velocity = Vector2.zero;
+        rb.linearVelocity = Vector2.zero;
         SetSprite(normalSprite);
         currentBehavior = GhostBehavior.Patrol;
     }
@@ -156,7 +156,7 @@ public class GhostController : MonoBehaviour
             {
                 isBouncing = false;
                 bounceTimer = 0f;
-                rb.velocity = Vector2.zero;
+                rb.linearVelocity = Vector2.zero;
             }
         }
         else
@@ -174,7 +174,7 @@ public class GhostController : MonoBehaviour
             Vector2 bounceDirection = Vector2.Reflect(currentDirection, normal);
             
             // 应用反弹力
-            rb.velocity = bounceDirection * currentVelocity;
+            rb.linearVelocity = bounceDirection * currentVelocity;
             
             // 设置反弹状态
             isBouncing = true;

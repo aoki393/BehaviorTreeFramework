@@ -123,13 +123,13 @@ public class PacmanPlayer : MonoBehaviour
         // 如果无法转向，停止
         else if (!CanMoveInDirection(currentDirection))
         {
-            rb.velocity = Vector2.zero;
+            rb.linearVelocity = Vector2.zero;
             return;
         }
 
         // 移动
         Vector2 movement = currentDirection * moveSpeed;
-        rb.velocity = movement;
+        rb.linearVelocity = movement;
 
         // 旋转角色面向移动方向
         float angle = Mathf.Atan2(currentDirection.y, currentDirection.x) * Mathf.Rad2Deg;
@@ -162,6 +162,6 @@ public class PacmanPlayer : MonoBehaviour
         transform.position = Vector3.zero;
         currentDirection = Vector2.right;
         nextDirection = Vector2.right;
-        rb.velocity = Vector2.zero;
+        rb.linearVelocity = Vector2.zero;
     }
 } 
